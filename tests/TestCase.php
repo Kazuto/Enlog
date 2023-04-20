@@ -2,7 +2,6 @@
 
 namespace Kazuto\Enlog\Tests;
 
-use Illuminate\Database\Eloquent\Factories\Factory;
 use Kazuto\Enlog\EnlogServiceProvider;
 use Orchestra\Testbench\TestCase as Orchestra;
 
