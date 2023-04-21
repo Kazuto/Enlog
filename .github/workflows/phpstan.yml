@@ -1,4 +1,4 @@
-name: PHPStan - Validate code quality
+name: Code Quality
 
 on:
   pull_request:
@@ -11,23 +11,15 @@ concurrency:
 
 jobs:
   phpstan:
-    runs-on: ${{ matrix.os }}
-
-    strategy:
-      fail-fast: true
-      matrix:
-        os: [ ubuntu-latest ]
-        php: [ 8.2, 8.1 ]
-
-    name: P${{ matrix.php }} - ${{ matrix.os }}
-
+    name: phpstan
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      
+
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: ${{ matrix.php }}
+          php-version: '8.1'
           coverage: none
 
       - name: Install composer dependencies

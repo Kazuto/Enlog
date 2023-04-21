@@ -1,4 +1,4 @@
-name: Pint - Fix PHP code style issues
+name: Code Style
 
 on:
   pull_request:
@@ -13,7 +13,7 @@ permissions:
   contents: write
 
 jobs:
-  php-code-styling:
+  pint:
     runs-on: ubuntu-latest
 
     steps:
