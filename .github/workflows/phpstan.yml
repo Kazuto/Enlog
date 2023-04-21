@@ -1,22 +1,33 @@
-name: PHPStan
+name: PHPStan - Validate code quality
 
 on:
-  push:
-    paths:
-      - '**.php'
-      - 'phpstan.neon.dist'
+  pull_request:
+    branches: [ master, develop ]
+    types: [ opened, synchronize, reopened, ready_for_review ]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   phpstan:
-    name: phpstan
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      fail-fast: true
+      matrix:
+        os: [ ubuntu-latest ]
+        php: [ 8.2, 8.1 ]
+
+    name: P${{ matrix.php }} - ${{ matrix.os }}
+
     steps:
       - uses: actions/checkout@v3
-
+          -
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: '8.1'
+          php-version: ${{ matrix.php }}
           coverage: none
 
       - name: Install composer dependencies

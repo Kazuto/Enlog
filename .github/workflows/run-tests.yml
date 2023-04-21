@@ -1,10 +1,13 @@
-name: run-tests
+name: Tests
 
 on:
-  push:
-    branches: [main]
   pull_request:
-    branches: [main]
+    branches: [ master, develop ]
+    types: [ opened, synchronize, reopened, ready_for_review ]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   test:
@@ -12,10 +15,10 @@ jobs:
     strategy:
       fail-fast: true
       matrix:
-        os: [ubuntu-latest, windows-latest]
-        php: [8.2, 8.1]
-        laravel: [10.*]
-        stability: [prefer-lowest, prefer-stable]
+        os: [ ubuntu-latest ]
+        php: [ 8.2, 8.1 ]
+        laravel: [ 10.* ]
+        stability: [ prefer-lowest, prefer-stable ]
         include:
           - laravel: 10.*
             testbench: 8.*
