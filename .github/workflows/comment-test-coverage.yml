@@ -29,8 +29,8 @@ jobs:
         uses: shivammathur/setup-php@v2
         with:
           php-version: 8.2
-          extensions: xdebug, dom, curl, libxml, mbstring, zip, pcntl, pdo, sqlite, pdo_sqlite, bcmath, soap, intl, gd, exif, iconv, imagick, fileinfo
-          coverage: none
+          extensions: dom, curl, libxml, mbstring, zip, pcntl, pdo, sqlite, pdo_sqlite, bcmath, soap, intl, gd, exif, iconv, imagick, fileinfo
+          coverage: xdebug
 
       - name: Setup problem matchers
         run: |
@@ -47,8 +47,6 @@ jobs:
 
       - name: Execute tests
         run: vendor/bin/pest --coverage-cobertura coverage.xml
-        env:
-          XDEBUG_MODE: coverage
 
       - name: Code Coverage Summary Report
         uses: irongut/CodeCoverageSummary@v1.3.0
