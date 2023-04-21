@@ -22,10 +22,8 @@ jobs:
         with:
           ref: ${{ github.head_ref }}
 
-      - name: Fix PHP code style issues
-        uses: aglipanci/laravel-pint-action@2.2.0
+      - name: Install composer dependencies
+        uses: ramsey/composer-install@v2
 
-      - name: Commit changes
-        uses: stefanzweifel/git-auto-commit-action@v4
-        with:
-          commit_message: Fix styling
+      - name: Run Pint
+        uses: vendor/bin/pint --test
