@@ -46,12 +46,12 @@ jobs:
         run: composer show -D
 
       - name: Execute tests
-        run: vendor/bin/pest --coverage-cobertura ./coverage.xml
+        run: vendor/bin/pest --coverage-cobertura coverage.xml
 
       - name: Code Coverage Summary Report
         uses: irongut/CodeCoverageSummary@v1.3.0
         with:
-          filename: /coverage.xml
+          filename: coverage.xml
           badge: true
           format: 'markdown'
           output: 'both'
