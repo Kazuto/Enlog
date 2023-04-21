@@ -4,7 +4,6 @@ use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\ItemNotFoundException;
-use Kazuto\Enlog\Enlog;
 use Kazuto\Enlog\Support\Aggregator;
 use Kazuto\Enlog\Support\LogFile;
 

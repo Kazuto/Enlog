@@ -28,7 +28,7 @@ class Parser
             for ($i = 0; $i < $count; $i++) {
                 $entries[] = [
                     'heading' => $heading[$i],
-                    'body' => trim($data[$i])
+                    'body' => trim($data[$i]),
                 ];
             }
         }
