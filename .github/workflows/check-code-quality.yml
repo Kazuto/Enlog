@@ -12,7 +12,6 @@ concurrency:
 jobs:
   phpstan:
     name: PHPStan
-
     runs-on: ubuntu-latest
 
     steps:
@@ -32,7 +31,6 @@ jobs:
 
   pint:
     name: Pint
-
     runs-on: ubuntu-latest
 
     steps:
@@ -46,4 +44,3 @@ jobs:
 
       - name: Run Pint
         run: ./vendor/bin/pint --test
-
