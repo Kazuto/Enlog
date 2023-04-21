@@ -1,6 +1,4 @@
 <?php
 
 // config for Kazuto/Enlog
-return [
-
-];
+return [];
